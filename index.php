@@ -50,9 +50,11 @@
             'distance_to_center' => 50
         ],
 
+
+
     ];
 
-
+    //var_dump($hotels)
 
     ?>
 
@@ -64,11 +66,16 @@
         foreach ($hotels as $hotel) {
 
             foreach ($hotel as $key => $value) {
-                echo "$key : $value <br>";
+                if ($key == "parking") {
+                    echo "parking: " . ($value ? "yes" : "no");
+                } else {
+                    echo "$key : $value";
+                };
+
+                echo "<br>";
             }
+            echo "<br>";
         }
-
-
 
 
 
