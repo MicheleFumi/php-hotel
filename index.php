@@ -59,27 +59,63 @@
     ?>
 
     <div class="container">
-        <h1 class="my-4">scegli l'hotel</h1>
+        <h1 class="my-4">Choose the hotel</h1>
 
-        <?php
+        <div class="py-2  text-center">
+            <form action="" method="get">
 
-        foreach ($hotels as $hotel) {
+                <input type="checkbox" name="parking" id="">
+                <label for="">want to park?</label>
 
-            foreach ($hotel as $key => $value) {
-                if ($key == "parking") {
-                    echo "parking: " . ($value ? "yes" : "no");
-                } else {
-                    echo "$key : $value";
-                };
+                <button type="submit" class="btn btn-primary">Button</button>
 
-                echo "<br>";
+            </form>
+
+            <?php
+            $checkmark = $_GET["parking"]
+
+            ?>
+        </div>
+
+        <h2>Your Results:</h2>
+        <hr>
+        <div class="mt-3">
+            <?php
+            if (!$checkmark) {
+                foreach ($hotels as $hotel) {
+
+                    foreach ($hotel as $key => $value) {
+                        if ($key == "parking") {
+                            echo "parking: " . ($value ? "yes" : "no");
+                        } else {
+                            echo "$key : $value";
+                        };
+
+                        echo "<br>";
+                    }
+                    echo "<hr>";
+                }
+            } else {
+                foreach ($hotels as $hotel) {
+
+                    if ($hotel["parking"]) {
+
+                        echo "
+                        name: $hotel[name]  
+                        description: $hotel[description] <br>
+                        parking: yes <br>
+                        vote: $hotel[vote] <br>
+                        distance_to_center: $hotel[distance_to_center] <br>
+                        <hr>
+                        ";
+                    }
+                }
             }
-            echo "<br>";
-        }
+
+            ?>
+        </div>
 
 
-
-        ?>
 
 
     </div>
