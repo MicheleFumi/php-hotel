@@ -8,7 +8,7 @@ require_once './database.php';
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Hotel</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
